@@ -1,66 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Parking-registry by jschr</title>
+<head>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="container">
+		<br />
+		<h2>Waterloo Overnight Parking</h2>
+		<br />
+		<form target="_new" class="form-horizontal" id="Form1" name="Form1" method="post" action="http://www.city.waterloo.on.ca/desktopdefault.aspx?tabid=436" enctype="multipart/form-data" >
+			<div id="loading-mask">
+				<div class="progress progress-striped active">
+					<div class="bar" style="width: 100%;">Loading</div>
+				</div>
+			</div>
+			<fieldset id="car-fields">
+				<legend style="margin-bottom: 4px">Car</legend>
+				<ul class="nav nav-pills"></ul>
+				<div class="row">
+					<div class="span6">
+						<div class="control-group">
+					    	<label class="control-label">Make</label>
+					    	<div class="controls" id="makes">
+					        	<select disabled="disabled"></select>
+					     	</div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Model</label>
+					    	<div class="controls" id="model">
+					    		<input disabled="disabled" type="text" />
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Colour</label>
+					    	<div class="controls" id="colour">
+					        	<select disabled="disabled"></select>
+						    </div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">License Plate</label>
+					    	<div class="controls" id="plate">
+					    		<input disabled="disabled" type="text" />
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="row" style="text-align: right">
+					<div class="span12">
+						<button type="button" class="btn save" data-key="car">Save</button>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset id="address-fields">
+				<legend style="margin-bottom: 4px">Address</legend>
+				<ul class="nav nav-pills"></ul>
+				<div class="row">
+					<div class="span6">
+						<div class="control-group">
+					    	<label class="control-label">First Name</label>
+					    	<div class="controls" id="firstname">
+					        	<input disabled="disabled" type="text" />
+					     	</div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Last Name</label>
+					    	<div class="controls" id="lastname">
+					    		<input disabled="disabled" type="text" />
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<div  id="streetnumber-control" class="control-group">
+					    	<label class="control-label">Street Number</label>
+					    	<div class="controls">
+					    		<div id="streetnumber">
+					        		<input type="text" />
+					        	</div>
+					        	<select id="streetnumber-spread">
+					        		<option value="0">none</option>
+					        		<option value="1">+/- 1</option>
+					        		<option selected="selected" value="2">+/- 2</option>
+					        		<option value="4">+/- 4</option>
+					        		<option value="8">+/- 8</option>
+					        		<option value="16">+/- 16</option>
+					        	</select>
+					        	<div class="clearfix"></div>
+					        	<div class="input-prepend input-append" style="margin-top: 4px" >
+					        		<span class="add-on">=</span><span id="streetnumber-value"><input type="text" disabled="disabled" /></span><button id="streetnumber-refresh" class="btn"><i class="icon-repeat"></i></button>
+					        	</div>
+					     	</div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Street Name</label>
+					    	<div class="controls" id="streetname">
+								<select></select>
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<div class="control-group">
+					    	<label class="control-label">Phone</label>
+					    	<div class="controls" id="phone">
+					        	<input disabled="disabled" type="text" />
+					     	</div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Email</label>
+					    	<div class="controls" id="email">
+					    		<input disabled="disabled" type="text" />
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="row" style="text-align: right">
+					<div class="span12">
+						<button type="button" class="btn save" data-key="address">Save</button>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset id="date-fields">
+				<legend>Date</legend>
+				<div class="row">
+					<div class="span6">
+						<div class="control-group">
+					    	<label class="control-label">Date</label>
+					    	<div class="controls" id="date">
+					        	<input disabled="disabled" type="text" />
+					     	</div>
+					    </div>
+					</div>
+					<div class="span6">
+					    <div class="control-group">
+					    	<label class="control-label">Number Of Nights</label>
+					    	<div class="controls" id="nights">
+					    		<input disabled="disabled" type="text" />
+						    </div>
+					    </div>	
+					</div>
+				</div>
+				<div class="hidden">
+					<div class="controls" id="streetsame">
+			    		<input disabled="disabled" type="checkbox" />
+				    </div>
+				    <div class="controls" id="reason">
+			    		<select></select>
+				    </div>
+				    <div class="controls" id="addVehicle">
+				    	<input type="hidden" />
+				    </div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<span id="requestPermit">
+					<button type="submit" class="btn btn-primary">Request Permit</button>
+				</span>
+				<button type="reset" class="btn">Clear</button>
+			</div>
+		</form>
+		<div id='page-contents'></div>
+	</div>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Parking-registry</h1>
-        <p>Waterloo Overnight Parking Registry</p>
-
-        <p class="view"><a href="https://github.com/jschr/parking-registry">View the Project on GitHub <small>jschr/parking-registry</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/jschr/parking-registry/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jschr/parking-registry/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jschr/parking-registry">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jschr">jschr</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="http://hail2u.github.com/jquery.query-yql/jquery.query-yql.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
 </html>
