@@ -56,6 +56,8 @@
 				$fieldset = $(this).closest('fieldset');
 				name = prompt('Name: ');
 
+			if (!name) return;
+			
 			config.store[key][name] = {};
 
 			for (var field in config.selectors){
