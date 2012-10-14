@@ -1,0 +1,37 @@
+form {
+	position: relative;
+}
+
+#loading-mask{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 999;
+}
+
+#loading-mask .progress {
+	position: absolute;
+	width: 200px;
+	left: 50%;
+	margin-left: -100px;
+	top: 100px;
+	margin-top: -10px;
+}
+
+#streetnumber input {
+	width: 103px;
+	float: left;
+	margin-right: 4px;
+}
+
+#streetnumber-value input {
+	width: 142px;
+}
+
+#streetnumber-spread {
+	width: 103px;
+	float: left;
+}

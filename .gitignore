@@ -1,0 +1,8 @@
+
+*.sublime-project
+
+*.sublime-workspace
+
+loader.js
+
+profiles.txt
