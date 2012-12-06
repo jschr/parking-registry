@@ -157,7 +157,10 @@
 			$requestPermit.remove();
 
 			var date = new Date();
-			date = new Date(date.getTime() + (24 * 60 * 60 * 1000)); // default in tomorrow's date
+
+			if (date.getHours() > 6) {
+				date = new Date(date.getTime() + (24 * 60 * 60 * 1000)); // default in tomorrow's date
+			}
 
 			$('#date input').val((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
 
